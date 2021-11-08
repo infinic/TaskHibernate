@@ -12,23 +12,23 @@ import java.util.Properties;
 
 public class Util {
     // DB connections settings...
-    private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String url = "jdbc:mysql://ds.umc.local:3306/CoreTaskTemplate";
-    private static final String user = "jm";
-    private static final String password = "";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost:3306/TaskHibernate";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
-    public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
     public static SessionFactory getSessionFactory() {
 
         Properties properties = new Properties();
-        properties.setProperty(Environment.DRIVER, driver);
-        properties.setProperty(Environment.URL, url);
-        properties.setProperty(Environment.USER, user);
-        properties.setProperty(Environment.PASS, password);
-        properties.setProperty(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty(Environment.DRIVER, DRIVER);
+        properties.setProperty(Environment.URL, URL);
+        properties.setProperty(Environment.USER, USER);
+        properties.setProperty(Environment.PASS, PASSWORD);
+        properties.setProperty(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.setProperty(Environment.SHOW_SQL, "true");
         properties.setProperty(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
